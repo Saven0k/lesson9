@@ -1,26 +1,32 @@
-﻿// Задача 64: Задайте значение N. Напишите программу, которая выведет все чётные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
-// N = 5 -> "4, 2"  // N = 8 -> "8, 6, 4, 2"
+﻿// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+
+// M = 1; N = 15 -> 120
+// M = 4; N = 8. -> 30
 Console.Clear();
+Console.Write("Введите число M: ");
+int numberM = int.Parse(Console.ReadLine());
 Console.Write("Введите число N: ");
-int number = int.Parse(Console.ReadLine());
-int i = 1;
-Console.Write($"N = {number} -> '");
-void EvenNumbers(int N)
+int numberN = int.Parse(Console.ReadLine());
+void SumNaturalNumbers(int m, int n)
 {
-    while (i <= number)
+    if ((m <= 0) || (n <= 0))
     {
-        if (i % 2 == 0)
-        { 
-            Console.Write($" {i} ");
-            i++;
-            EvenNumbers(number);
-        }
-        else 
+        Console.WriteLine("Ошибка: Одно из чисел меньше нуля");
+        Console.Write("Введите число M: ");
+        int numberM2 = int.Parse(Console.ReadLine());
+        Console.Write("Введите число N: ");
+        int numberN2 = int.Parse(Console.ReadLine());
+        SumNaturalNumbers(numberM2, numberN2);
+    }
+    else
+    {
+        int sum = 0;
+        while (m <= n)
         {
-            i++;
-            EvenNumbers(number);
+            sum += m;
+            m++;
         }
+        Console.WriteLine(sum);
     }
 }
-EvenNumbers(number);
-Console.Write("'");
+SumNaturalNumbers(numberM,numberN);
