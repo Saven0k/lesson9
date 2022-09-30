@@ -1,20 +1,20 @@
-﻿// Задача 67: Напишите программу, которая будет принимать на вход число и возвращать сумму его цифр.
-// 453 -> 12
-// 45 -> 9
+﻿// Задача 69: Напишите программу, которая на вход принимает два числа A и B, и возводит число А в целую степень B с помощью рекурсии.
+// A = 3; B = 5 -> 243 (3⁵)
+// A = 2; B = 3 -> 8
 Console.Clear();
-Console.Write("Введите число: ");
-int number = int.Parse(Console.ReadLine());
-int SumNumbersInNumber(int n)
+Console.Write("Введите число A: ");
+int a = int.Parse(Console.ReadLine());
+Console.Write("Введите число B: ");
+int b = int.Parse(Console.ReadLine());
+int DegreeNumber(int A, int B)
 {
-    int oldn = n;
-    int sum = 0;
-    while (n > 0)
+    if (B == 0)
     {
-        int g = n % 10;
-        n = n / 10;
-        sum = sum + g;
+        return 1;
     }
-    Console.WriteLine($"{oldn} - > {sum}");
-    return sum;
+    else
+    {
+        return A * DegreeNumber(A, B - 1);
+    }
 }
-SumNumbersInNumber(number);
+Console.WriteLine(DegreeNumber(a, b));
